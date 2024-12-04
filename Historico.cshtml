@@ -1,0 +1,28 @@
+@page
+@model HistoricoModel
+@{
+    ViewData["Title"] = "Histórico de Agendamentos";
+}
+
+<h2>Histórico de Agendamentos</h2>
+
+<ul>
+    @foreach (var agendamento in Model.Agendamentos)
+    {
+        <li>
+            Agendamento ID: @agendamento, Data: @agendamento.DataHora
+            <ul>
+                @foreach (var servico in agendamento.Servicos)
+                {
+                    <li>@servico.Nome</li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+
+@section Scripts {
+    <script>
+        // Carregar os agendamentos com AJAX ou outra lógica
+    </script>
+}

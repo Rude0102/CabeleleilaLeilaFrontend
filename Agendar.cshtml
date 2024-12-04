@@ -1,0 +1,38 @@
+@page
+@model AgendarModel
+@{
+    ViewData["Title"] = "Agendar Serviço";
+}
+
+<h2>Agendar Serviço</h2>
+
+<form method="post">
+    <div>
+        <label for="ClienteId">Cliente</label>
+        <input type="number" id="ClienteId" name="ClienteId" required />
+    </div>
+
+    <div>
+        <label for="ServicoIds">Serviços</label>
+        <select id="ServicoIds" name="ServicoIds" multiple required>
+            @foreach (var servico in Model.Servicos)
+            {
+                <option value="@servico.Id">@servico.Nome</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label for="DataHora">Data e Hora</label>
+        <input type="datetime-local" id="DataHora" name="DataHora" required />
+    </div>
+
+    <button type="submit">Agendar</button>
+</form>
+
+@section Scripts {
+    <script>
+        // Lógica para preencher os dados da API (clientes, serviços, etc.)
+        // Poderia ser carregado com AJAX aqui
+    </script>
+}

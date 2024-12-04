@@ -1,0 +1,20 @@
+@page
+@model AdminModel
+@{
+    ViewData["Title"] = "Gerenciamento de Agendamentos";
+}
+
+<h2>Gerenciamento de Agendamentos</h2>
+
+<ul>
+    @foreach (var agendamento in Model.Agendamentos)
+    {
+        <li>
+            Agendamento ID: @agendamento, Data: @agendamento.DataHora
+            <form method="post" asp-page-handler="Confirmar" asp-route-id="@agendamento">
+                <button type="submit">Confirmar</button>
+            </form>
+        </li>
+    }
+</ul>
+
